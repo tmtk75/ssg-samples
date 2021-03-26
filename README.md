@@ -1,8 +1,8 @@
 # README
-https://nextjs.org/docs/getting-started
-
 ## Hw to generate
 ### nextjs
+https://nextjs.org/docs/getting-started
+
 ```
 $ yarn create next-app
 ...
@@ -16,6 +16,8 @@ $ yarn build && yarn start
 ```
 
 ### nuxtjs
+https://nuxtjs.org/docs/2.x/get-started/installation/
+
 ```
 $ mkdir nuxtjs-sample
 ...
@@ -35,5 +37,50 @@ create-nuxt-app v3.6.0
 ? Version control system: None
 ...
 
-$ yarn build && yarn start
+$ yarn generate && yarn start
+```
+
+### vite vue-ts
+https://vitejs.dev/guide/#browser-support
+
+```
+$ yarn create @vitejs/app
+...
+✔ Project name: · vite-vue-ts
+
+Scaffolding project in /Users/tsakuma/static-site-generation-sample/vite-react-ts...
+? Select a template: …
+  vanilla
+  vue
+❯ vue-ts
+  react
+  react-ts
+  preact
+  preact-ts
+  lit-element
+  lit-element-ts
+  svelte
+  svelte-ts
+
+...
+
+$ cd vite-vue-ts
+$ yarn && yarn dev
+```
+
+### vite react-ts
+https://vitejs.dev/guide/#browser-support
+
+```
+$ yarn create @vitejs/app
+...
+✔ Project name: · vite-react-ts
+
+? Select a template: …
+...
+❯ react-ts
+...
+
+$ cd vite-react-ts
+$ yarn && yarn dev
 ```
