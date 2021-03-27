@@ -15,3 +15,18 @@ vite-vue/dist/index.html:
 
 vite-react/dist/index.html:
 	cd vite-react; yarn && yarn build
+
+.PHONY: nextjs nuxtjs vite-react vite-vue
+nextjs: nextjs/out/index.html
+	(cd nextjs/out/ && python3 -m http.server 8000)
+
+nuxtjs: nuxtjs/dist/index.html
+	(cd nuxtjs/dist/ && python3 -m http.server 8000)
+
+vite-react: vite-react/dist/index.html
+	(cd vite-react/dist/ && python3 -m http.server 8000)
+
+vite-vue: vite-vue/dist/index.html
+	(cd vite-vue/dist/ && python3 -m http.server 8000)
+
+
