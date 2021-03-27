@@ -1,13 +1,13 @@
 # README
 ## How to generate
 ```
-# nextjs-sample
+# nextjs
 $ yarn build && yarn start
 
 $ ls out/index.html
 ```
 ```
-# nuxtjs-sample
+# nuxtjs
 $ yarn generate && yarn start
 
 $ ls dist/index.html
@@ -45,10 +45,10 @@ $ yarn create next-app
 ...
 # wait for a few minutes 
 
-What is your project named? › nextjs-sample
+What is your project named? › nextjs
 ...
 
-$ cd nextjs-sample
+$ cd nextjs
 $ yarn build && yarn start
 ```
 
@@ -56,11 +56,11 @@ $ yarn build && yarn start
 https://nuxtjs.org/docs/2.x/get-started/installation/
 
 ```
-$ mkdir nuxtjs-sample
+$ mkdir nuxtjs
 ...
 create-nuxt-app v3.6.0
 ✨  Generating Nuxt.js project in .
-? Project name: nuxtjs-sample
+? Project name: nuxtjs
 ? Programming language: TypeScript
 ? Package manager: Yarn
 ? UI framework: Vuetify.js
@@ -83,9 +83,8 @@ https://vitejs.dev/guide/#browser-support
 ```
 $ yarn create @vitejs/app
 ...
-✔ Project name: · vite-vue-ts
+✔ Project name: · vite-vue
 
-Scaffolding project in /Users/tsakuma/static-site-generation-sample/vite-react-ts...
 ? Select a template: …
   vanilla
   vue
@@ -101,7 +100,7 @@ Scaffolding project in /Users/tsakuma/static-site-generation-sample/vite-react-t
 
 ...
 
-$ cd vite-vue-ts
+$ cd vite-vue
 $ yarn && yarn dev
 ```
 
@@ -111,13 +110,13 @@ https://vitejs.dev/guide/#browser-support
 ```
 $ yarn create @vitejs/app
 ...
-✔ Project name: · vite-react-ts
+✔ Project name: · vite-react
 
 ? Select a template: …
 ...
 ❯ react-ts
 ...
 
-$ cd vite-react-ts
+$ cd vite-react
 $ yarn && yarn dev
 ```
