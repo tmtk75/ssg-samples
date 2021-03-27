@@ -17,14 +17,17 @@ const (
 	KeyPort = "port"
 )
 
-//go:embed nuxtjs-sample/dist/*
+//go:embed nuxtjs/dist/*
 var nuxtjs embed.FS
 
-//go:embed nextjs-sample/out/*
+//go:embed nextjs/out/*
 var nextjs embed.FS
 
-//go:embed vite-vue-ts/dist/*
+//go:embed vite-vue/dist/*
 var vitevue embed.FS
+
+//go:embed vite-react/dist/*
+var vitereact embed.FS
 
 type hdr struct {
 	parent string
@@ -47,9 +50,10 @@ func Start() {
 	serve := func(prefix, parent string, fs embed.FS) {
 		e.GET(prefix+"*", echo.WrapHandler(http.StripPrefix(prefix, hdr{parent: parent, h: http.FileServer(http.FS(fs))})))
 	}
-	serve("/nuxtjs", "nuxtjs-sample/dist/", nuxtjs)
-	serve("/nextjs", "nextjs-sample/out/", nextjs)
-	serve("/vite-vue", "vite-vue-ts/dist/", vitevue)
+	serve("/nuxtjs", "nuxtjs/dist/", nuxtjs)
+	serve("/nextjs", "nextjs/out/", nextjs)
+	serve("/vite-vue", "vite-vue/dist/", vitevue)
+	serve("/vite-react", "vite-react/dist/", vitereact)
 
 	log.Printf("start listening at %s", viper.GetString(KeyPort))
 	log.Fatal(e.Start(viper.GetString(KeyPort)))
