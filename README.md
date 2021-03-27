@@ -1,5 +1,42 @@
 # README
-## Hw to generate
+## How to generate
+```
+# nextjs-sample
+$ yarn build && yarn start
+
+$ ls out/index.html
+```
+```
+# nuxtjs-sample
+$ yarn generate && yarn start
+
+$ ls dist/index.html
+```
+```
+# vite-vue-ts
+$ yarn build && yarn serve
+
+$ ls dist/index.html
+```
+```
+# vite-vue-react
+$ yarn build && yarn serve
+
+$ ls dist/index.html
+```
+
+You can simply serve with a HTTP server for each project.
+```
+$ (cd out && python3 -m http.server 8000)
+...
+
+$ (cd dist && python3 -m http.server 8000)
+...
+```
+
+## How I set up
+Here is how I make scaffolding each project.
+
 ### nextjs
 https://nextjs.org/docs/getting-started
 
