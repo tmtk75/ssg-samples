@@ -20,14 +20,22 @@ const (
 //go:embed nuxtjs-sample/dist/*
 var nuxtjs embed.FS
 
+//go:embed nextjs-sample/out/*
+var nextjs embed.FS
+
+//go:embed vite-vue-ts/dist/*
+var vitevue embed.FS
+
 type hdr struct {
-	h http.Handler
+	parent string
+	h      http.Handler
 }
 
 func (h hdr) ServeHTTP(r http.ResponseWriter, req *http.Request) {
 	var a http.Request = *req
 	var url url.URL = *req.URL
-	url.Path = "nuxtjs-sample/dist/" + req.URL.Path
+	url.Path = h.parent + req.URL.Path
+	//log.Printf("%v", url.Path)
 	a.URL = &url
 	h.h.ServeHTTP(r, &a)
 }
@@ -36,7 +44,12 @@ func Start() {
 	e := echo.New()
 	e.Use(middleware.Logger())
 
-	e.GET("/*", echo.WrapHandler(http.StripPrefix("/", hdr{h: http.FileServer(http.FS(nuxtjs))})))
+	serve := func(prefix, parent string, fs embed.FS) {
+		e.GET(prefix+"*", echo.WrapHandler(http.StripPrefix(prefix, hdr{parent: parent, h: http.FileServer(http.FS(fs))})))
+	}
+	serve("/nuxtjs", "nuxtjs-sample/dist/", nuxtjs)
+	serve("/nextjs", "nextjs-sample/out/", nextjs)
+	serve("/vite-vue", "vite-vue-ts/dist/", vitevue)
 
 	log.Printf("start listening at %s", viper.GetString(KeyPort))
 	log.Fatal(e.Start(viper.GetString(KeyPort)))
