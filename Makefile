@@ -4,8 +4,14 @@ run: nextjs/out/index.html \
      vite-react/dist/index.html
 	go run . -p :8000
 
+distclean:
+	rm -rf nuxtjs/dist
+	rm -rf nextjs/out
+	rm -rf vite-vue/dist
+	rm -rf vite-react/dist
+
 nextjs/out/index.html:
-	cd nextjs; yarn && yarn build
+	cd nextjs; yarn && yarn build && yarn next export
 
 nuxtjs/dist/index.html:
 	cd nuxtjs; yarn && yarn generate
